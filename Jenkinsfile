@@ -8,12 +8,12 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/LMThumeo/Simple-Java-Web.git'
-                bat  '.\mvnw clean compile'
+                bat  './mvnw clean compile'
             }
         }
         stage('Test') {
             steps {
-                bat '.\mvnw test'
+                bat './mvnw test'
             }
             post {
                 always {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                bat '.\mvnw package'
+                bat './mvnw package'
             }
             post {
                 success {
