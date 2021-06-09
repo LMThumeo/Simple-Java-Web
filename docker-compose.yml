@@ -1,0 +1,11 @@
+version: '2'
+services:
+    greeting-server:
+        container_name: greeting
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: javaweb:latest
+        ports:
+            - 18888:9999
+       
