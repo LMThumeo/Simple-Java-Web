@@ -1,13 +1,14 @@
 pipeline {
   
-    agent any
+  agent any
   
-    environment {
-      registry = "leminhthu/simple-java-web"
-      registryCredential = 'dockerhub_id'
-      dockerImage = ''
-    }
+  environment {
+    registry = "leminhthu/simple-java-web"
+    registryCredential = 'dockerhub_id'
+    dockerImage = ''
+  }
         
+  stages {
     // Building Docker images
     stage('Building image') {
       steps{
@@ -27,4 +28,5 @@ pipeline {
           }
       }
     }
+  }
 }
