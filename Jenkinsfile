@@ -1,11 +1,11 @@
 pipeline {
-
-    agent any 
-
+  
+    agent any
+  
     environment {
-        registry = "leminhthu/simple-java-web"
-        registryCredential = 'dockerhub_id'
-        dockerImage = ''
+      registry = "leminhthu/simple-java-web"
+      registryCredential = 'dockerhub_id'
+      dockerImage = ''
     }
         
     // Building Docker images
@@ -20,12 +20,11 @@ pipeline {
      // Uploading Docker images into Docker Hub
     stage('Upload Image') {
      steps{    
-         script {
+        script {
             docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
             }
-        }
+          }
       }
     }
-  }
 }
