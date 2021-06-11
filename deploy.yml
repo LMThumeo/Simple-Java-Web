@@ -18,7 +18,7 @@
   - name: Start the container
     docker_container:
       name: simple-java-web
-      image: "leminhthu/simple-java-web:{{DOCKER_TAG}}"
+      image: "leminhthu/simple-java-web:latest"
       state: started
       published_ports:
       - 0.0.0.0.8080:9999
