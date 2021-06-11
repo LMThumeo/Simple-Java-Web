@@ -28,5 +28,11 @@ pipeline {
           }
       }
     }
+
+    stage('Deploy') {
+      steps{
+        ansiblePlaybook credentialsId: 'thu', disableHostKeyChecking: true, extras: "-e DOCKER_TAG=${DOCKER_TAG}", installation: 'ansible', inventory: 'inventory.ini', playbook: 'deploy.yml'
+      }
+    }
   }
 }
