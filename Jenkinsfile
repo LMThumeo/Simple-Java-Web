@@ -10,24 +10,24 @@ pipeline {
         
   stages {
     // Building Docker images
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry
-        }
-      }
-    }
+    // stage('Building image') {
+    //   steps{
+    //     script {
+    //       dockerImage = docker.build registry
+    //     }
+    //   }
+    // }
     
-     // Uploading Docker images into Docker Hub
-    stage('Upload Image') {
-     steps{    
-        script {
-            docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-            }
-          }
-      }
-    }
+    //  // Uploading Docker images into Docker Hub
+    // stage('Upload Image') {
+    //  steps{    
+    //     script {
+    //         docker.withRegistry( '', registryCredential ) {
+    //         dockerImage.push()
+    //         }
+    //       }
+    //   }
+    // }
 
     stage('Deploy') {
       steps{
