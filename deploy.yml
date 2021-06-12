@@ -17,6 +17,7 @@
       name: docker-compose
       state: present
   - name: Start docker
+    become: yes
     service:
       name: docker
       state: started
