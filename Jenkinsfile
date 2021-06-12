@@ -9,30 +9,30 @@ pipeline {
   }
         
   stages {
-    // Building Docker images
-    // stage('Building image') {
-    //   steps{
-    //     script {
-    //       dockerImage = docker.build registry
-    //     }
-    //   }
-    // }
-    
-    //  // Uploading Docker images into Docker Hub
-    // stage('Upload Image') {
-    //  steps{    
-    //     script {
-    //         docker.withRegistry( '', registryCredential ) {
-    //         dockerImage.push()
-    //         }
-    //       }
-    //   }
-    // }
-
-    stage('Deploy') {
+    Building Docker images
+    stage('Building image') {
       steps{
-        ansiblePlaybook credentialsId: 'thu', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.ini', playbook: 'deploy.yml'
+        script {
+          dockerImage = docker.build registry
+        }
       }
     }
+    
+     // Uploading Docker images into Docker Hub
+    stage('Upload Image') {
+     steps{    
+        script {
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+            }
+          }
+      }
+    }
+
+//     stage('Deploy') {
+//       steps{
+//         ansiblePlaybook credentialsId: 'thu', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.ini', playbook: 'deploy.yml'
+//       }
+//     }
   }
 }
