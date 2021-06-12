@@ -31,4 +31,4 @@
       image: "leminhthu/simple-java-web:latest"
       state: started
       published_ports:
-      - 0.0.0.0.8080:9999
+      - 8080:9999
