@@ -6,6 +6,16 @@
     yum:
       name: python3-pip
       state: present
+  - name: Install docker.io
+    become: yes
+    apt:
+      name: docker.io
+      state: present
+  - name: Intall docker-compose
+    become: yes
+    apt:
+      name: docker-compose
+      state: present
   - name: Start docker
     service:
       name: docker
