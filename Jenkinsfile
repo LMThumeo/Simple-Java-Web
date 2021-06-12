@@ -29,10 +29,10 @@ pipeline {
       }
     }
 
-//     stage('Deploy') {
-//       steps{
-//         ansiblePlaybook credentialsId: 'thu', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.ini', playbook: 'deploy.yml'
-//       }
-//     }
+    stage('Deploy') {
+      steps{
+        ansiblePlaybook credentialsId: 'thu', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.ini', playbook: 'deploy.yml'
+      }
+    }
   }
 }
